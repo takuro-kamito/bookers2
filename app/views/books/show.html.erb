@@ -1,1 +1,35 @@
-<h1>Book Details</h1>
+<h2>Title</h2>
+
+<h2><%= @book.title %></h2>
+
+<p>Opinion</p>
+<p><%= @book.body %></p>
+
+<h2>画像</h2>
+<%= image_tag @user.get_profile_image(100,100) %>
+
+<div>
+  <h2>Book detail</h2>
+  <table>
+    <thead>
+      <tr>
+      <td>
+        <%= link_to user_path(@book.user_id) do %>
+        <%= image_tag @user.get_profile_image(80,80) %>
+        <%= @user.name %>
+      </td>
+      <td>
+        <%= link_to book_path(@book.id) do %>
+          <%= @book.title %>
+        <% end %>
+      </td>
+      <td>
+        <%= @book.body %>
+      </td>
+      <% if @user == current_user %>
+      <%= link_to "Edit", edit_book_path(@book) %>
+      <%= link_to "Destroy", book_path(@book), method: :delete %>
+      <% end %>
+      <td>
+      <% end %>
+      <%= render "devise/shared/book" %>
