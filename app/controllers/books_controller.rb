@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     @users = User.all
     @book = Book.new
     @books = Book.all
-
+    
   end
 
   def create
@@ -17,6 +17,7 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     @book.save
     redirect_to book_path(@book.id)
+  
   end
 
   def show

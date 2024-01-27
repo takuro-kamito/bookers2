@@ -32,4 +32,7 @@
       <% end %>
       <td>
       <% end %>
-      <%= render "devise/shared/book" %>
+      </table>
+    </thead>
+    </tr>
+      <%= render "devise/shared/book",{book: @book,books: @books} %>
